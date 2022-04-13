@@ -5,7 +5,7 @@ import com.example.spring_boot_mvc.model.User;
 
 import java.util.List;
 
-public interface UserDAO {
+public interface UserDao {
 
     List<User> findAll();
 

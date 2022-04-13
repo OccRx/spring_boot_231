@@ -1,20 +1,22 @@
 package com.example.spring_boot_mvc.service;
 
-import com.example.spring_boot_mvc.DAO.UserDAO;
+import com.example.spring_boot_mvc.DAO.UserDao;
 import com.example.spring_boot_mvc.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 
 @Service
 @Transactional
 public class UserServiceImp implements UserService{
 
-    @Autowired
-    UserDAO userDAO;
+    private UserDao userDAO;
 
+    @Autowired
+    public UserServiceImp(UserDao userDAO) {
+        this.userDAO = userDAO;
+    }
 
     @Override
     public List<User> findAll() {
